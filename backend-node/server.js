@@ -27,10 +27,12 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(
   cors({
-    origin: process.env.CLIENT_ORIGIN || "http://localhost:5173",
+    origin: process.env.CLIENT_ORIGIN,
     credentials: true,
   })
 );
+
+console.log(`Client origin set to: ${process.env.CLIENT_ORIGIN}`);
 
 app.get("/api/health", (_req, res) =>
   res.json({ ok: true, service: "subflow" })
@@ -52,7 +54,7 @@ const PORT = process.env.PORT;
 
 connectToMongo().then(() => {
   app.listen(PORT, () => {
-    console.log(`API active on http://localhost:${PORT}`);
+    console.log(`API active on port:${PORT}`);
     
     // Run alert checks immediately on startup
     alertService.runAlertChecks();
