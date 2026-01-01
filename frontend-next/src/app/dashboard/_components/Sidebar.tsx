@@ -83,7 +83,7 @@ export function Sidebar({
 
       <aside
         className={[
-          'fixed left-0 top-16 z-40 h-100 border-r border-white/10 bg-gradient-to-b from-black to-purple-900/5 backdrop-blur-xl transition-all duration-300',
+          'fixed left-0 top-16 z-40 h-100% border-r border-white/10 bg-gradient-to-b from-black to-purple-900/5 backdrop-blur-xl transition-all duration-300',
           sidebarOpen ? 'w-72 translate-x-0' : 'w-20 -translate-x-full lg:translate-x-0',
           'lg:sticky lg:top-16 lg:translate-x-0',
         ].join(' ')}
